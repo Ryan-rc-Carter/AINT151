@@ -1,0 +1,27 @@
+h1{
+  color: green;
+  font-family:sans-serif;
+}
+
+p{
+  color: grey;
+}
+
+img{
+  width: 100px;
+  border-style: dashed;
+  border-color: blue;
+  border-width: 5px;
+}
+ul{
+  width: 100px;
+}
+li{
+  padding: 0px;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+}
+table{
+  border-width: 1px;
+}
