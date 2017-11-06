@@ -1,0 +1,38 @@
+
+#header{
+  Width: 900px;
+  height: 70px;
+  margin: 10px;
+  background-color: lightgrey;
+  text-align: center;
+}
+
+#leftmenu{
+  float: left;
+  Height: 500px;
+  width: 295px;
+  margin: 10px;
+  background-color: lightgrey;
+  text-align: center;
+}
+
+#maincontent{
+  float: left;
+  width: 595px;
+  height: 500px;
+  margin: 10px 0px;
+  background-color: lightgrey;
+  text-align: center;
+
+}
+
+#footer{
+
+  width: 900px;
+  Height: 30px;
+  margin: 10px;
+  background-color: lightgrey;
+  float: left;
+  clear: left;
+  text-align: center;
+}

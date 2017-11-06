@@ -1,0 +1,23 @@
+ul{
+  color: orange;
+  width: 80px;
+}
+
+li{
+  list-style-type: none;
+  padding: 10px;
+  background-color: lightgrey;
+  border-width:1px;
+  border-style: solid;
+
+}
+
+a:link{
+  text-decoration: none;
+}
+
+a:hover{
+  background-color: darkgrey;
+  color: white;
+
+}
