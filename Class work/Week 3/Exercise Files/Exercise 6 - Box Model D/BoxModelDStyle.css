@@ -1,0 +1,25 @@
+#header{
+  width: 900px;
+  height: 70px;
+  background-color: lightgrey;
+  text-align: center;
+  margin: 5px;
+}
+
+.leftitem{
+  width: 600px;
+  height: 100px;
+  background-color: lightgrey;
+  margin: 5px;
+  float: left;
+  clear:left;
+}
+
+#rightmenu{
+  width: 290px;
+  height: 430px;
+  margin: 5px;
+  background-color: lightgrey;
+  position: absolute;
+  left: 620px
+}
