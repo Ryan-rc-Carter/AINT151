@@ -15,10 +15,10 @@ function ReplaceText()
 
 function TurnLightOn()
 {
-	document.getElementById("lightBulb").img src = 'img/bulb-on.png'
+	document.getElementById("lightBulb").src="img/bulb-on.png"
 }
 
 function TurnLightOff()
 {
-
+	document.getElementById("lightBulb").src="img/bulb-off.png"
 }
