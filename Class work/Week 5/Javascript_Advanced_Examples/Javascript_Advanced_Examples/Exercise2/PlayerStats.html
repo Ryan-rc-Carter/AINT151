@@ -4,9 +4,16 @@
 <meta charset="utf-8">
 <title>Advanced Javascript - Player Stats</title>
 <script>
-function OnLoad() 
+function OnLoad()
 {
-	
+	var name = localStorage.getItem('playerName');
+	var health = localStorage.getItem('playerHealth');
+	var color = localStorage.getItem('playercolour');
+
+	document.getElementById('playername').innerText = name;
+	document.getElementById('health').innerText = health;
+	document.getElementById('playercolour').style.backgroundColor = color;
+
 }
 </script>
 </head>
@@ -14,8 +21,8 @@ function OnLoad()
 <body onLoad="OnLoad()">
 
     <h1 id="playername">name</h1>
-	<p id="playerhealth">health</p>
-	<div id="playercolour" style="width:50px;height:50px;background-color:#000;"></div>
-    
+		<p id="health">health</p>
+		<div id="playercolour" style="width:50px;height:50px;background-color:#000;"></div>
+
 </body>
 </html>

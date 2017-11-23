@@ -1,14 +1,11 @@
 
 function StorePlayerData()
 {
-	var playerName = document.forms[0]["playername"].value;
-	//var playerHealth = document.getElementById('number').value;
-	//var playerColour = document.getElementById('color').value
+
+	localStorage.setItem('playerName',document.forms[0]['playername'].value);
+	localStorage.setItem('playerHealth',document.forms[0]['playerhealth'].value);
+	localStorage.setItem('playercolour',document.forms[0]['playercolour'].value);
 
 
-
-	localStorage.setItem("playername", playerName);
-	//localStorage.setItem("health", playerHealth);
-	//localStorage.setItem("colour", playerColour);
 
 }
