@@ -1,7 +1,7 @@
 /*HTML tags here*/
 body
 {
-    background: black
+    background: #1b0227;
 }
 
 ul
@@ -11,7 +11,7 @@ ul
   padding: 0;
 
   display: inline
-  width: 100%
+
 
 }
 
@@ -20,15 +20,28 @@ li a
   border-width: 5px;
   border-color: Red;
   border-style: solid;
+
   display: block;
   text-align: center;
   text-decoration: none;
+  color: white;
+  font-family: sans-serif;
 
+  margin: 5px;
+  background-color: red;
+}
+
+li a:hover
+{
+  background-color: DarkRed;
+  border-color: DarkRed;
 }
 
 li
 {
   float: left;
+  width:25%
+
 }
 
 
@@ -84,5 +97,10 @@ li
   height: auto;
   border-style: solid;
   border-color: Darkred;
+
+}
+
+
+.home{
 
 }
