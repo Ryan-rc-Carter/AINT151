@@ -95,15 +95,44 @@ li
   margin: auto;
   width: 750px;
   height: 650px;
-  background-color: white;
-
+  background-color: Black;
 }
-
 .hud
 {
-  padding: 50px;
-  height: 50px;
+
+  color: white;
+  font-size: 15px;
+  font-family: sans-serif;
+  text-decoration: underline;
+  height: 265px;
   background-color: darkgrey;
+}
+
+.gameText
+{
+  padding: 10px;
+}
 
 
+#playerSprite
+{
+  float: left;
+  padding: 10px;
+  border-style: solid;
+  border-color: black;
+  border-width: 5px;
+}
+
+#enemySprite
+{
+  float: right;
+  padding: 10px;
+  border-style: solid;
+  border-color: black;
+  border-width: 5px;
+}
+
+#enemyDamageDealt
+{
+  float: right;
 }
