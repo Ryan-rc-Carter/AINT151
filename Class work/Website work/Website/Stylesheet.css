@@ -104,13 +104,25 @@ li
   font-size: 15px;
   font-family: sans-serif;
   text-decoration: underline;
-  height: 265px;
-  background-color: darkgrey;
+  height: 300px;
+
 }
 
 .gameText
 {
-  padding: 10px;
+  color: white;
+  font-size: 15px;
+  font-family: sans-serif;
+  font-weight: 900;
+}
+
+.variableText
+{
+  color: white;
+  font-size: 15px;
+  font-family: sans-serif;
+  font-weight: 900;
+  display: inline-block;
 }
 
 
@@ -118,8 +130,9 @@ li
 {
   float: left;
   padding: 10px;
+  margin: 5px;
   border-style: solid;
-  border-color: black;
+  border-color: White;
   border-width: 5px;
 }
 
@@ -127,8 +140,9 @@ li
 {
   float: right;
   padding: 10px;
+    margin: 5px;
   border-style: solid;
-  border-color: black;
+  border-color: White;
   border-width: 5px;
 }
 

@@ -8,7 +8,7 @@
   <script src="game.js"></script>
 </head>
 
-<body>
+<body onload="OnLoad()">
 
   <h1 class="title">Robot Search And Destroy</h1>
 
@@ -25,33 +25,39 @@
 
   <h2 class="standardHeader">Play</h2>
 
-  <input type="button" onclick='Reset()'>
-
   <div class="gameWindow">
 
     <div class="hud">
 
-      <div id="playerSprite" onLoad="OnLoad()">
-        <img src="img/PR-001.png" width="125" height="125">
-        <h3 class="gameText"> Player health:<p id="Health"> 100</p> /100 </h3>
+      <div id="playerSprite" >
+        <img id="pSprite" src="img/PR-001.png" width="125" height="125">
+        <h3>Player health:</h3>
+        <h3 id="Health">100</h3>
+        <h3>/100</h3>
       </div>
 
-      <div id="enemySprite"onLoad="OnLoad()">
-        <img src="img/enemy.png" width="125" height="125">
-        <h3 class="gameText"> Enemy health:<p id="enemyHealth"> 100</p> /100 </h3>
+      <div id="enemySprite">
+        <img id="eSprite" src="img/enemy.png" width="125" height="125">
+        <h3>Enemy health:</h3>
+        <h3 id="enemyHealth">100</h3>
+        <h3>/100</h3>
 
       </div>
 
 
       <p class="gameText">Choose Attacks</p>
-      <p class="gameText" id="damageDealt">0</p>
-      <p class="gameText" id="enemyDamageDealt">0</p>
       <form>
         <select id="playerAttack">
           <option value="1">Light Attack</option>
           <option value="2">Heavy Attack</option>
-        <input type="button" onclick='Attack()'>
+        <input id="attackButton" type="button" onclick='Attack()'>
       </form>
+
+      <p class="gameText" id="area"> - Location: Citadel Entrance</p>
+      <p class="gameText" id="systems"> - Systems: Operational </p>
+      <p class="variableText">MPC:</p>
+      <p class="variableText" id="heavyWeapon">Ready</p>
+      <p class="gameText" id="objective">- Mission Objectives: Breach</p>
 
     </div>
 
