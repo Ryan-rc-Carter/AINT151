@@ -40,26 +40,42 @@
         <img id="eSprite" src="img/enemy.png" width="125" height="125">
         <h3>Enemy health:</h3>
         <h3 id="enemyHealth">100</h3>
-        <h3>/100</h3>
+        <h3 id="enemyMaxHealth">/100</h3>
 
       </div>
 
 
-      <p class="gameText">Choose Attacks</p>
+      <p class="gameText">Choose Attack</p>
       <form>
         <select id="playerAttack">
           <option value="1">Light Attack</option>
           <option value="2">Heavy Attack</option>
-        <input id="attackButton" type="button" onclick='Attack()'>
+        <input id="attackButton" type="button" value="Attack" onclick='Attack()'>
       </form>
 
-      <p class="gameText" id="area"> - Location: Citadel Entrance</p>
+      <p class="gameText"> - Location:</p>
+      <p class="variableText" id="areas"> Outside Citadel</p>
       <p class="gameText" id="systems"> - Systems: Operational </p>
-      <p class="variableText">MPC:</p>
+      <p class="variableText"> - Heavy attack:</p>
       <p class="variableText" id="heavyWeapon">Ready</p>
       <p class="gameText" id="objective">- Mission Objectives: Breach</p>
 
     </div>
+
+    <br>
+
+    <input class="roomButtons" id="enterCitadel" type="button" value="Enter Citadel" onClick="citadelEntrance()" disabled="true">
+    <input class="roomButtons" id="enterMines" type="button" value="Enter Mines" onClick="enterMines()" disabled="true">
+    <input class="roomButtons" id="enterPrison" type="button" value="Enter Prison" onClick="enterPrison()" disabled="true">
+    <input class="roomButtons" id="enterFactory" type="button" value="Enter Factory" onClick="enterFactory()" disabled="true">
+
+
+    <input class="roomButtons" id="backtoCitadel" type="button" value="Back to Citadel" onClick="backtoCitadel" disabled="true">
+
+    <br>
+    <br>
+
+    <input class="actionButton" id="collectKeycard" type="button" value="Collect Keycard" onclick="collectKeycard()" disabled="true">
 
   </div>
 

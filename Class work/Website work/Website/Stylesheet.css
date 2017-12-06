@@ -93,8 +93,8 @@ li
 .gameWindow
 {
   margin: auto;
-  width: 750px;
-  height: 650px;
+  width: 60%;
+
   background-color: Black;
 }
 .hud
@@ -103,7 +103,6 @@ li
   color: white;
   font-size: 15px;
   font-family: sans-serif;
-  text-decoration: underline;
   height: 300px;
 
 }
@@ -125,6 +124,11 @@ li
   display: inline-block;
 }
 
+.roomButtons
+{
+  display: inline-block;
+}
+
 
 #playerSprite
 {
@@ -140,7 +144,7 @@ li
 {
   float: right;
   padding: 10px;
-    margin: 5px;
+  margin: 5px;
   border-style: solid;
   border-color: White;
   border-width: 5px;
@@ -149,4 +153,9 @@ li
 #enemyDamageDealt
 {
   float: right;
+}
+
+#attackButton
+{
+  margin: 10px;
 }

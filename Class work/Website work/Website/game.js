@@ -10,78 +10,111 @@ function OnLoad()
 
   var area = 1
 
-  localStorage.setItem("area", area)
+  localStorage.setItem("area", 1)
 
   var isWeaponCharged = 1;
 
   localStorage.setItem("isWeaponCharged", 1)
 }
 
+
 function Attack()
 {
-  if(localStorage.getItem('playerHealth') > 0 && localStorage.getItem('enemyHealth') > 0)
+  do
   {
-    var attacktype = document.getElementById('playerAttack').value;
-
-    if (attacktype == 1)
+    if(localStorage.getItem('playerHealth') > 0 && localStorage.getItem('enemyHealth') > 0)
     {
+      var attacktype = document.getElementById('playerAttack').value;
 
-      var damage = Math.floor((Math.random() * 15) + 5);
-      playerAnimationLight()
-
-      if (localStorage.getItem('isWeaponCharged') == 0)
+      if (attacktype == 1)
       {
-        isWeaponCharged = 1
-        document.getElementById('heavyWeapon').innerHTML = "Ready"
+
+        var damage = Math.floor((Math.random() * 15) + 5);
+        playerAnimationLight()
+
+        if (localStorage.getItem('isWeaponCharged') == 0)
+        {
+          localStorage.setItem('isWeaponCharged', 1)
+          document.getElementById('heavyWeapon').innerHTML = "Ready"
+
+        }
+
+        localStorage.setItem("playerDamage", damage)
       }
 
-      localStorage.setItem("playerDamage", damage)
+      else if (attacktype == 2)
+      {
+        if (localStorage.getItem('isWeaponCharged') == 1)
+        {
+          var damage = Math.floor((Math.random() * 40) + 10);;
+          playerAnimationHeavy()
+          localStorage.setItem('isWeaponCharged', 0)
+          document.getElementById('heavyWeapon').innerHTML = "Charging"
+        }
+        else if (localStorage.getItem('isWeaponCharged') == 0)
+        {
+          var damage = 0
+          document.getElementById('heavyWeapon').innerHTML = "Charging"
+
+        }
+
+        localStorage.setItem("playerDamage", damage)
+
+      }
+      if (localStorage.getItem('area') == 1)
+      {
+        enemyDamage = Math.floor((Math.random() * 10) + 1);
+
+        if (enemyDamage > 5)
+        {
+          enemyAnimationHeavy()
+        }
+
+        else
+        {
+          enemyAnimationLight()
+        }
+      }
+      else if (localStorage.getItem('area') == 2)
+      {
+        enemyDamage = Math.floor((Math.random() * 15) + 1);
+          localStorage.setItem("enemyDamage", enemyDamage)
+
+        if (enemyDamage > 7)
+        {
+          enemyAnimationHeavy()
+        }
+
+        else
+        {
+          enemyAnimationLight()
+        }
+      }
+      calculatePlayerHealth()
+      calculateEmemyHealth()
+      console.log(enemyDamage, damage)
     }
-    else if (attacktype == 2)
+    else if (localStorage.getItem('playerHealth') <= 0)
     {
-      if (localStorage.getItem('isWeaponCharged') == 1)
-      {
-        var damage = Math.floor((Math.random() * 40) + 10);;
-        playerAnimationHeavy()
-        localStorage.setItem('isWeaponCharged', 0)
-        document.getElementById('heavyWeapon').innerHTML = "Charging"
-
-      }
-      else if (localStorage.getItem('isWeaponCharged') == 0)
-      {
-        document.getElementById('heavyWeapon').innerHTML = "Charging"
-        var damage = 0
-      }
-
-      localStorage.setItem("playerDamage", damage)
+      document.getElementById('pSprite').src="img/PR-001dead.png"
     }
-    enemyDamage = Math.floor((Math.random() * 10) + 1);
-
-    if (localStorage.getItem('isWeaponCharged') == 0 )
+    else if (localStorage.getItem('enemyHealth') <= 0)
     {
-      if (enemyDamage > 5)
+      if (localStorage.getItem('area') == 1)
       {
-        enemyAnimationHeavy()
+        document.getElementById('eSprite').src="img/Enemydead.png"
+        document.getElementById('enterCitadel').disabled=false;
       }
-      else
+      else if (localStorage.getItem('area') == 2)
       {
-        enemyAnimationLight()
+        document.getElementById('eSprite').src="img/Enemydead.png"
+        document.getElementById('enterMines').disabled=false;
+        document.getElementById('enterPrison').disabled=false;
+        document.getElementById('enterFactory').disabled=false;
       }
     }
-
-    localStorage.setItem("enemyDamage", enemyDamage)
-
-    calculatePlayerHealth()
-    calculateEmemyHealth()
   }
-  else if (localStorage.getItem('playerHealth') <= 0)
-  {
-    document.getElementById('pSprite').src="img/PR-001dead.png"
-  }
-  else if (localStorage.getItem('enemyHealth') <= 0)
-  {
-    document.getElementById('eSprite').src="img/Enemydead.png"
-  }
+  while(localStorage.getItem(''))
 }
 
 function calculatePlayerHealth()
@@ -109,18 +142,78 @@ function calculateEmemyHealth()
 
   currentEnemyHealth = currentEnemyHealth - playerDamageDealt
 
-  if (currentEnemyHealth < 0)
+  if (currentEnemyHealth < 0 && area == 1)
+  {
+    localStorage.setItem('enemyHealth', 0)
+    document.getElementById('eSprite').src="img/Enemydead.png"
+    document.getElementById('enterCitadel').disabled=false;
+  }
+  else if(currentEnemyHealth < 0 && area == 2)
   {
     currentEnemyHealth = 0
     document.getElementById('eSprite').src="img/Enemydead.png"
+    document.getElementById('enterMines').disabled=false;
   }
 
   localStorage.setItem("enemyHealth", currentEnemyHealth)
 
   document.getElementById("enemyHealth").innerHTML = currentEnemyHealth
+}
+
+function citadelEntrance()
+{
+  localStorage.setItem("area", 2)
+  localStorage.setItem("enemyHealth", "110")
+  localStorage.setItem("playerHealth", "100")
+  document.getElementById('eSprite').src="img/Enemy.png"
+  document.getElementById('enemyHealth').innerHTML="110"
+  document.getElementById('enemyMaxHealth').innerHTML="110"
+  document.getElementById('enterCitadel').disabled = true;
+  document.getElementById('Health').innerHTML="100"
+  document.getElementById('attackButton').disabled=false;
 
 }
 
+function enterMines()
+{
+  localStorage.setItem("area", 3)
+  localStorage.setItem("enemyHealth", "110")
+  localStorage.setItem("playerHealth", "100")
+  document.getElementById('eSprite').src="img/Enemy.png"
+  document.getElementById('enemyHealth').innerHTML="110"
+  document.getElementById('enemyMaxHealth').innerHTML="110"
+  document.getElementById('enterMines').disabled = true;
+  document.getElementById('Health').innerHTML="100"
+  document.getElementById('attackButton').disabled=false;
+  document.getElementById('enterCitadel').disabled = true;
+  document.getElementById('areas').innerHTML = "Inner Citadel"
+}
+
+function enterPrison()
+{
+  localStorage.setItem("area", 4)
+  localStorage.setItem("enemyHealth", "120")
+  localStorage.setItem("playerHealth", "100")
+  document.getElementById('eSprite').src="img/Enemy.png"
+  document.getElementById('enemyHealth').innerHTML="110"
+  document.getElementById('enemyMaxHealth').innerHTML="110"
+  document.getElementById('enterPrison').disabled = true;
+  document.getElementById('Health').innerHTML="100"
+  document.getElementById('attackButton').disabled=false;
+
+}
+function enterFactory()
+{
+  localStorage.setItem("area", 5)
+  localStorage.setItem("enemyHealth", "110")
+  localStorage.setItem("playerHealth", "100")
+  document.getElementById('eSprite').src="img/Enemy.png"
+  document.getElementById('enemyHealth').innerHTML="110"
+  document.getElementById('enemyMaxHealth').innerHTML="110"
+  document.getElementById('enterMines').disabled = true;
+  document.getElementById('Health').innerHTML="100"
+  document.getElementById('attackButton').disabled=false;
+}
 
 /*Animations for sprites*/
 function playerAnimationLight()
