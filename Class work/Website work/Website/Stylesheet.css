@@ -107,6 +107,11 @@ li
 
 }
 
+.buttonLayout
+{
+  position: relative;
+}
+
 .gameText
 {
   color: white;
@@ -125,6 +130,11 @@ li
 }
 
 .roomButtons
+{
+  display: inline-block;
+}
+
+.cardImages
 {
   display: inline-block;
 }

@@ -54,28 +54,51 @@
       </form>
 
       <p class="gameText"> - Location:</p>
-      <p class="variableText" id="areas"> Outside Citadel</p>
+      <p class="variableText" id="areas"> - Outside Citadel</p>
       <p class="gameText" id="systems"> - Systems: Operational </p>
       <p class="variableText"> - Heavy attack:</p>
       <p class="variableText" id="heavyWeapon">Ready</p>
-      <p class="gameText" id="objective">- Mission Objectives: Breach</p>
+
 
     </div>
-
-    <br>
-
-    <input class="roomButtons" id="enterCitadel" type="button" value="Enter Citadel" onClick="citadelEntrance()" disabled="true">
-    <input class="roomButtons" id="enterMines" type="button" value="Enter Mines" onClick="enterMines()" disabled="true">
-    <input class="roomButtons" id="enterPrison" type="button" value="Enter Prison" onClick="enterPrison()" disabled="true">
-    <input class="roomButtons" id="enterFactory" type="button" value="Enter Factory" onClick="enterFactory()" disabled="true">
-
-
-    <input class="roomButtons" id="backtoCitadel" type="button" value="Back to Citadel" onClick="backtoCitadel" disabled="true">
-
     <br>
     <br>
 
-    <input class="actionButton" id="collectKeycard" type="button" value="Collect Keycard" onclick="collectKeycard()" disabled="true">
+    <div class="buttonLayout">
+      <p class="gameText"> - Room Navigation</p>
+
+
+
+      <input class="roomButtons" id="enterCitadel" type="button" value="Enter Citadel" onClick="citadelEntrance()" disabled="true">
+      <input class="roomButtons" id="enterMines" type="button" value="Enter Mines" onClick="enterMines()" disabled="true">
+      <input class="roomButtons" id="enterPrison" type="button" value="Enter Prison" onClick="enterPrison()" disabled="true">
+      <input class="roomButtons" id="enterFactory" type="button" value="Enter Factory" onClick="enterFactory()" disabled="true">
+      <input class="roomButtons" id="enterPower" type="button" value="Enter Power Room" onClick="enterPowerRoom()" disabled="true">
+
+
+
+      <input class="roomButtons" id="backToCitadel" type="button" value="Back to Citadel" onClick="backToCitadel()" disabled="true">
+
+      <br>
+      <br>
+
+
+      <p class="gameText"> - Actions</p>
+
+
+      <input class="actionButton" id="collectKeycard" type="button" value="Collect Keycard" onclick="collectKeycard()" disabled="true">
+      <input class="actionButton" id="collectAccessOne" type="button" value="Collect Access Card 1" onclick="accessCardOne()" disabled="true">
+      <input class="actionButton" id="collectAccessTwo" type="button" value="Collect Access Card 2" onclick="accessCardTwo()" disabled="true">
+      <input class="actionButton" id="collectAccessThree" type="button" value="Collect Access Card 3" onclick="accessCardThree()" disabled="true">
+
+      <br>
+
+      <img class="cardImages" id="keycard" src="img/cardnotfound.png" width="125" height="125">
+      <img class="cardImages" id="access1" src="img/cardnotfound.png" width="125" height="125">
+      <img class="cardImages" id="access2" src="img/cardnotfound.png" width="125" height="125">
+      <img class="cardImages" id="access2" src="img/cardnotfound.png" width="125" height="125">
+
+    </div>
 
   </div>
 
