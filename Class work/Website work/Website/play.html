@@ -27,17 +27,27 @@
 
   <div class="gameWindow">
 
+    <div class="commanderWindow">
+      <img class="commander" id="commander" src="img/Commander.gif" width="200" height=" 200">
+
+      <p class="commanderText" id="commanderText"> Welcome to the CITADEL, the base of operations for the Omega-Cult in this area.<br>Its your mission to take down this facility by deactivating its power core.<br><br>Lets start by fighting this enemy Mech. Use your LIGHT ATTACK to deal medium but consistent damage.<br><br> Use your HEAVY ATTACK to deal large but inconsistent damage, but be warned it needs to recharge after each use, trying to use it while its charging will cause damage to yourself.</p>
+    </div>
+
     <div class="hud">
 
+
+      <br>
+      <br>
+
       <div id="playerSprite" >
-        <img id="pSprite" src="img/PR-001.png" width="125" height="125">
+        <img id="pSprite" src="img/PR-001.png" width="150" height="150">
         <h3>Player health:</h3>
         <h3 id="Health">100</h3>
         <h3>/100</h3>
       </div>
 
       <div id="enemySprite">
-        <img id="eSprite" src="img/enemy.png" width="125" height="125">
+        <img id="eSprite" src="img/enemy.png" width="150" height="150">
         <h3>Enemy health:</h3>
         <h3 id="enemyHealth">100</h3>
         <h3 id="enemyMaxHealth">/100</h3>
@@ -53,8 +63,8 @@
         <input id="attackButton" type="button" value="Attack" onclick='Attack()'>
       </form>
 
-      <p class="gameText"> - Location:</p>
-      <p class="variableText" id="areas"> - Outside Citadel</p>
+      <p class="variableText"> - Location:</p>
+      <p class="variableText" id="areas"> Outside Citadel</p>
       <p class="gameText" id="systems"> - Systems: Operational </p>
       <p class="variableText"> - Heavy attack:</p>
       <p class="variableText" id="heavyWeapon">Ready</p>
@@ -63,6 +73,7 @@
     </div>
     <br>
     <br>
+        <br>
 
     <div class="buttonLayout">
       <p class="gameText"> - Room Navigation</p>
@@ -99,6 +110,7 @@
       <img class="cardImages" id="access2" src="img/cardnotfound.png" width="125" height="125">
 
     </div>
+
 
   </div>
 

@@ -97,40 +97,7 @@ function Attack()
     calculateEmemyHealth()
     console.log(enemyDamage, damage)
   }
-  /*else if (localStorage.getItem('playerHealth') <= 0)
-  {
-    document.getElementById('pSprite').src="img/PR-001dead.png"
-  }
-  else if (localStorage.getItem('enemyHealth') <= 0)
-  {
-    if (localStorage.getItem('area') == 1)
-    {
-      document.getElementById('eSprite').src="img/Enemydead.png"
-      document.getElementById('collectKeycard').disabled=false;
-    }
-    else if (localStorage.getItem('area') == 2)
-    {
-      document.getElementById('eSprite').src="img/Enemydead.png"
-      document.getElementById('enterMines').disabled=false;
-      document.getElementById('enterPrison').disabled=false;
-      document.getElementById('enterFactory').disabled=false;
-    }
-    else if (localStorage.getItem('area') == 3)
-    {
-      document.getElementById('eSprite').src="img/Enemydead.png"
-      document.getElementById('collectAccessOne').disabled=false;
-    }
-    else if (localStorage.getItem('area') == 4)
-    {
-      document.getElementById('eSprite').src="img/Enemydead.png"
-      document.getElementById('collectAccessTwo').disabled=false;
-    }
-    else if (localStorage.getItem('area') == 5)
-    {
-      document.getElementById('eSprite').src="img/Enemydead.png"
-      document.getElementById('collectAccessThree').disabled=false;
-    }
-  }*/
+
 
 }
 
@@ -144,6 +111,9 @@ function calculatePlayerHealth()
   {
     currentHealth = 0
     document.getElementById('pSprite').src="img/PR-001dead.png"
+    document.getElementById('commanderText').innerHTML=" WARNING - SYSTEM ERROR - INCURSION ALERT - PRIMARY SYSTEMS DISABLED - SECONDARY SYSTEMS DISABLED - WEAPON SYSTEMS DISABLED - LIFE SUPPORT SYSTEMS DISABLED - SYSTEMS COMPROMISED - PROTOCOL 146 INITITED : SELF-DESTRUCT SEQUENCE INITIATED"
+    alert("You have died, Refresh page to start again")
+    document.getElementById('commanderText').style.color="red";
   }
 
   localStorage.setItem("playerHealth", currentHealth)
@@ -161,31 +131,39 @@ function calculateEmemyHealth()
 
   if (currentEnemyHealth <= 0 && localStorage.getItem('area') == 1)
   {
+    currentEnemyHealth = 0
     localStorage.setItem('enemyHealth', 0)
     document.getElementById('enemyHealth').innerHTML="0"
     document.getElementById('eSprite').src="img/Enemydead.png"
     document.getElementById('collectKeycard').disabled=false;
+    document.getElementById('commanderText').innerHTML="Good job on that fight, get that KEYCARD and move onto the next area"
   }
   else if(currentEnemyHealth <= 0 && localStorage.getItem('area') == 2)
   {
+    currentEnemyHealth = 0
     localStorage.setItem('enemyHealth', 0)
     document.getElementById('eSprite').src="img/Enemydead.png"
     document.getElementById('enterMines').disabled=false;
     document.getElementById('enterPrison').disabled=false;
     document.getElementById('enterFactory').disabled=false;
+    document.getElementById('commanderText').innerHTML="Looks like we need to collect 3 ACCESS CARDS to reach the Power room. Lets clear the MINES, PRISON and FACTORY"
+
   }
   else if (currentEnemyHealth <= 0 && localStorage.getItem('area') == 3)
   {
+    currentEnemyHealth = 0
     document.getElementById('eSprite').src="img/Enemydead.png"
     document.getElementById('collectAccessOne').disabled=false;
   }
   else if (currentEnemyHealth <= 0 && localStorage.getItem('area') == 4)
   {
+    currentEnemyHealth = 0
     document.getElementById('eSprite').src="img/Enemydead.png"
     document.getElementById('collectAccessTwo').disabled=false;
   }
   else if (currentEnemyHealth <= 0 && localStorage.getItem('area') == 5)
   {
+    currentEnemyHealth = 0
     document.getElementById('eSprite').src="img/Enemydead.png"
     document.getElementById('collectAccessThree').disabled=false;
   }
@@ -207,6 +185,7 @@ function citadelEntrance()
   document.getElementById('Health').innerHTML="100"
   document.getElementById('attackButton').disabled=false;
   document.getElementById('areas').innerHTML = " - Inner Citadel"
+  document.getElementById("commanderText").innerHTML="Another Mech, you know the drill"
 
 }
 

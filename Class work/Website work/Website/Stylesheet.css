@@ -139,6 +139,44 @@ li
   display: inline-block;
 }
 
+.buttonLayout
+{
+  border-color: White;
+  border-width: 5px;
+  border-style: solid;
+  width: 90%;
+  padding: 10px;
+  display: inline-block;
+}
+
+.commander
+{
+  border-color: White;
+  border-width: 5px;
+  border-style: solid;
+  padding: 10px;
+  margin: 10px;
+  display: inline-block;
+  float: left;
+}
+
+.commanderText
+{
+  display: inline-block;
+  color: white;
+  font-size: 15px;
+  font-family: sans-serif;
+  font-weight: 900;
+  border-color: White;
+  border-width: 5px;
+  border-style: solid;
+  width: 70%;
+
+  padding: 10px;
+  margin: 10px;
+
+}
+
 
 #playerSprite
 {
@@ -148,6 +186,7 @@ li
   border-style: solid;
   border-color: White;
   border-width: 5px;
+  position: static;
 }
 
 #enemySprite
@@ -158,6 +197,9 @@ li
   border-style: solid;
   border-color: White;
   border-width: 5px;
+  position: static;
+
+
 }
 
 #enemyDamageDealt
