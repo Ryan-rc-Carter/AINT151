@@ -78,7 +78,7 @@ function Attack()
         enemyAnimationLight()
       }
     }
-    else if (localStorage.getItem('area') == 2 || localStorage.getItem('area') == 3)
+    else if (localStorage.getItem('area') == 2 || localStorage.getItem('area') == 3 || localStorage.getItem('area') == 4 || localStorage.getItem('area') == 5)
     {
       enemyDamage = Math.floor((Math.random() * 15) + 1);
         localStorage.setItem("enemyDamage", enemyDamage)
@@ -93,6 +93,19 @@ function Attack()
         enemyAnimationLight()
       }
     }
+    else if (localStorage.getItem('area') == 1)
+      {
+        enemyDamage = Math.floor((Math.random() * 20) + 1);
+
+        if (enemyDamage > 10)
+        {
+          enemyAnimationHeavy()
+        }
+
+        else
+        {
+          enemyAnimationLight()
+        }
     calculatePlayerHealth()
     calculateEmemyHealth()
     console.log(enemyDamage, damage)
