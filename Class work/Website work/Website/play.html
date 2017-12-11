@@ -25,6 +25,8 @@
 
   <h2 class="standardHeader">Play</h2>
 
+  <input id="Boss" type="button" onclick="enableBoss()">
+
   <div class="gameWindow">
 
     <div class="commanderWindow">
@@ -36,6 +38,7 @@
     <div class="hud">
 
 
+      <br>
       <br>
       <br>
 
@@ -84,7 +87,7 @@
       <input class="roomButtons" id="enterMines" type="button" value="Enter Mines" onClick="enterMines()" disabled="true">
       <input class="roomButtons" id="enterPrison" type="button" value="Enter Prison" onClick="enterPrison()" disabled="true">
       <input class="roomButtons" id="enterFactory" type="button" value="Enter Factory" onClick="enterFactory()" disabled="true">
-      <input class="roomButtons" id="enterPower" type="button" value="Enter Power Room" onClick="enterPowerRoom()" disabled="true">
+      <input class="roomButtons" id="enterPowerRoom" type="button" value="Enter Power Room" onClick="enterPowerRoom()" disabled="true">
 
 
 
@@ -101,13 +104,17 @@
       <input class="actionButton" id="collectAccessOne" type="button" value="Collect Access Card 1" onclick="accessCardOne()" disabled="true">
       <input class="actionButton" id="collectAccessTwo" type="button" value="Collect Access Card 2" onclick="accessCardTwo()" disabled="true">
       <input class="actionButton" id="collectAccessThree" type="button" value="Collect Access Card 3" onclick="accessCardThree()" disabled="true">
+      <input class="actionButton" id="gen1" type="button" value="Disable Generator 1" onclick="gen1()" disabled="true">
+      <input class="actionButton" id="gen2" type="button" value="Disable Generator 2" onclick="gen2()" disabled="true">
+      <input class="actionButton" id="gen3" type="button" value="Disable Generator 3" onclick="gen3()" disabled="true">
+
 
       <br>
 
       <img class="cardImages" id="keycard" src="img/cardnotfound.png" width="125" height="125">
       <img class="cardImages" id="access1" src="img/cardnotfound.png" width="125" height="125">
       <img class="cardImages" id="access2" src="img/cardnotfound.png" width="125" height="125">
-      <img class="cardImages" id="access2" src="img/cardnotfound.png" width="125" height="125">
+      <img class="cardImages" id="access3" src="img/cardnotfound.png" width="125" height="125">
 
     </div>
 

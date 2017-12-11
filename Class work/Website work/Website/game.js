@@ -19,6 +19,8 @@ function OnLoad()
   localStorage.setItem("accessOne", 0)
   localStorage.setItem("accessTwo", 0)
   localStorage.setItem("accessThree", 0)
+
+  localStorage.setItem("Generators",0)
 }
 
 
@@ -93,9 +95,9 @@ function Attack()
         enemyAnimationLight()
       }
     }
-    else if (localStorage.getItem('area') == 1)
+    else if (localStorage.getItem('area') == 6)
       {
-        enemyDamage = Math.floor((Math.random() * 20) + 1);
+        enemyDamage = Math.floor((Math.random() * 20) + 10);
 
         if (enemyDamage > 10)
         {
@@ -106,19 +108,37 @@ function Attack()
         {
           enemyAnimationLight()
         }
+      }
+      else
+      {
+        enemyDamage = 0
+      }
     calculatePlayerHealth()
     calculateEmemyHealth()
     console.log(enemyDamage, damage)
   }
 
 
+
+
 }
 
 function calculatePlayerHealth()
 {
-  var currentHealth = localStorage.getItem("playerHealth");
+  if(localStorage.getItem("area") != 6)
+  {
+    var currentHealth = localStorage.getItem("playerHealth");
 
-  currentHealth = currentHealth - enemyDamage
+    currentHealth = currentHealth - enemyDamage
+  }
+  else if (localStorage.getItem("area") == 6)
+  {
+      var repairedHealth = Math.floor((Math.random() * 15) + 1)
+
+      var currentHealth = localStorage.getItem("playerHealth");
+
+      currentHealth = (currentHealth - enemyDamage) + repairedHealth
+  }
 
   if (currentHealth <= 0)
   {
@@ -159,7 +179,7 @@ function calculateEmemyHealth()
     document.getElementById('enterMines').disabled=false;
     document.getElementById('enterPrison').disabled=false;
     document.getElementById('enterFactory').disabled=false;
-    document.getElementById('commanderText').innerHTML="Looks like we need to collect 3 ACCESS CARDS to reach the Power room. Lets clear the MINES, PRISON and FACTORY"
+    document.getElementById('commanderText').innerHTML="Looks like we need to collect 3 ACCESS CARDS to reach the Power room. Lets clear the MINES, PRISON and FACTORY \n\n\n\n\n\n"
 
   }
   else if (currentEnemyHealth <= 0 && localStorage.getItem('area') == 3)
@@ -179,6 +199,14 @@ function calculateEmemyHealth()
     currentEnemyHealth = 0
     document.getElementById('eSprite').src="img/Enemydead.png"
     document.getElementById('collectAccessThree').disabled=false;
+  }
+  else if (currentEnemyHealth <= 0 && localStorage.getItem('area') == 6)
+  {
+    currentEnemyHealth = 0
+    document.getElementById('eSprite').src="img/Enemydead.png"
+    document.getElementById('commanderText').innerHTML="Great job pilot, now deactivate the GENERATORS and your mission is complete"
+    document.getElementById('gen1').disabled=false;
+
   }
 
   localStorage.setItem("enemyHealth", currentEnemyHealth)
@@ -265,21 +293,62 @@ function enterPowerRoom()
   document.getElementById('Health').innerHTML="100"
   document.getElementById('attackButton').disabled=false;
   document.getElementById('areas').innerHTML = " - Power Room"
+  document.getElementById('commanderText').innerHTML="'Damn, this guy looks tough, Hold on, i'm activating a PROTOTYPE REPAIR SYSTEM' <REPAIR SYSTEM ONLINE>. 'There this should repair some of the damage this guy deals, but its still in the prototype phase so it may do more harm than good'"
 }
 
 function backToCitadel()
 {
     localStorage.setItem("area", 4)
-    document.getElementById('enterMines').disabled=false;
-    document.getElementById('enterPrison').disabled=false;
-    document.getElementById('enterFactory').disabled=false;
-    document.getElementById('backToCitadel').disabled=true;
+
     document.getElementById('areas').innerHTML="Citadel"
 
-
-    if (localStorage.getItem('accessOne') == 1 && localStorage.getItem('accessTwo') == 1 && localStorage.getItem('accessThree') == 1)
+    if (localStorage.getItem('accessOne') == 1)
     {
-      document.getElementById('enterPower').disabled=false;
+      document.getElementById('enterPrison').disabled=false;
+      document.getElementById('enterFactory').disabled=false;
+      document.getElementById('backToCitadel').disabled=true;
+    }
+    else if (localStorage.getItem('accessTwo') == 1)
+    {
+      document.getElementById('enterMines').disabled=false;
+      document.getElementById('enterFactory').disabled=false;
+      document.getElementById('backToCitadel').disabled=true;
+    }
+    else if (localStorage.getItem('accessThree') == 1)
+    {
+      document.getElementById('enterMines').disabled=false;
+      document.getElementById('enterPrison').disabled=false;
+      document.getElementById('backToCitadel').disabled=true;
+    }
+
+    if ((localStorage.getItem('accessOne') == 1) && (localStorage.getItem('accessTwo') == 1))
+    {
+      document.getElementById('enterFactory').disabled=false;
+      document.getElementById('enterMines').disabled=true;
+      document.getElementById('enterPrison').disabled=true;
+      document.getElementById('backToCitadel').disabled=true;
+    }
+    else if ((localStorage.getItem('accessTwo') == 1) && (localStorage.getItem('accessThree') == 1))
+    {
+      document.getElementById('enterMines').disabled=false;
+      document.getElementById('enterFactory').disabled=true;
+      document.getElementById('enterPrison').disabled=true;
+      document.getElementById('backToCitadel').disabled=true;
+    }
+    else if ((localStorage.getItem('accessOne') == 1) && (localStorage.getItem('accessThree') == 1))
+    {
+      document.getElementById('enterPrison').disabled=false;
+      document.getElementById('enterFactory').disabled=true;
+      document.getElementById('enterMines').disabled=true;
+      document.getElementById('backToCitadel').disabled=true;
+    }
+
+    if ((localStorage.getItem('accessOne') == 1) && (localStorage.getItem('accessTwo') == 1) && (localStorage.getItem('accessThree') == 1))
+    {
+      document.getElementById('enterPowerRoom').disabled=false;
+      document.getElementById('enterMines').disabled=true;
+      document.getElementById('enterPrison').disabled=true;
+      document.getElementById('enterFactory').disabled=true;
     }
 
 }
@@ -314,10 +383,50 @@ function accessCardThree()
   document.getElementById('backToCitadel').disabled=false;
   document.getElementById('collectAccessThree').disabled=true;
   document.getElementById('access3').src="img/accessThree.png"
+}
 
+function enableBoss() /*REMEMBER TO REMOVE PIECE OF CODE LATER*/
+{
+  document.getElementById('enterPowerRoom').disabled=false;
+}
 
+function gen1()
+{
+  document.getElementById('commanderText').innerHTML="GENERATOR #1 DEACTIVATED"
+  document.getElementById('commanderText').style.color="red";
+  document.getElementById('gen2').disabled=false;
+  document.getElementById('gen1').disabled=true;
+
+  localStorage.setItem("Generators", 1)
 
 }
+
+function gen2()
+{
+  document.getElementById('commanderText').innerHTML="GENERATOR #2 DEACTIVATED"
+  document.getElementById('commanderText').style.color="red";
+  document.getElementById('gen3').disabled=false;
+  document.getElementById('gen2').disabled=true;
+  localStorage.setItem("Generators", 2)
+}
+
+function gen3()
+{
+  document.getElementById('commanderText').innerHTML="GENERATOR #3 DEACTIVATED"
+  document.getElementById('commanderText').style.color="red";
+  document.getElementById('gen3').disabled=true;
+  localStorage.setItem("Generators", 3)
+}
+
+
+window.setInterval()
+var textInterval = setInterval
+
+if (localStorage.getItem("Generators") == 3)
+{
+
+}
+
 
 /*Animations for sprites*/
 function playerAnimationLight()
