@@ -21,6 +21,8 @@ function OnLoad()
   localStorage.setItem("accessThree", 0)
 
   localStorage.setItem("Generators",0)
+
+  localStorage.setItem("text",0)
 }
 
 
@@ -416,15 +418,48 @@ function gen3()
   document.getElementById('commanderText').style.color="red";
   document.getElementById('gen3').disabled=true;
   localStorage.setItem("Generators", 3)
+
 }
 
-
-window.setInterval()
-var textInterval = setInterval
-
-if (localStorage.getItem("Generators") == 3)
+function nextText()
 {
+  var textType = localStorage.getItem("text")
 
+  textType = textType + 1
+
+  localStorage.setItem("text", textType)
+
+  if (localStorage.getItem("Generators") == 3)
+  {
+    document.getElementById("commanderButton").disabled
+    document.getElementById('commanderText').innerHTML="YOUR INSOLENCE HAS BEEN NOTICED BY THE OMEGA CULT HIGH COMMAND, FACILITY SELF DESTRUCTION SEQUENCE INITIATED"
+    document.getElementById('commanderText').style.color="red";
+
+    if (localStorage.getItem("text") == 1)
+    {
+        document.getElementById('commanderText').style.color="white";
+        document.getElementById('commanderText').innerHTML="Great job, now get the hell out of there before the faclity blows!"
+    }
+    else if (localStorage.getItem("text") == 2)
+    {
+      document.getElementById('commanderText').innerHTML="FACLITY SELF DESTRUCTION SEQUENCE IN 3..."
+      document.getElementById('commanderText').style.color="red";
+    }
+    else if (localStorage.getItem("text") == 3)
+    {
+      document.getElementById('commanderText').innerHTML="FACLITY SELF DESTRUCTION SEQUENCE IN 2..."
+      document.getElementById('commanderText').style.color="red";
+    }
+    else if (localStorage.getItem("text") == 4)
+    {
+      document.getElementById('commanderText').innerHTML="FACLITY SELF DESTRUCTION SEQUENCE IN 1..."
+      document.getElementById('commanderText').style.color="red";
+    }
+    else if (localStorage.getItem("text") == 2)
+    {
+      alert("Thank you for playing, refresh the page to play again")
+    }
+  }
 }
 
 
