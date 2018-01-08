@@ -25,7 +25,11 @@ function OnLoad()
   localStorage.setItem("text",0)
 
   console.log(localStorage.getItem('text'))
+
+
 }
+
+
 
 
 function Attack()
@@ -248,6 +252,7 @@ function enterMines()
   document.getElementById('Health').innerHTML="100"
   document.getElementById('attackButton').disabled=false;
   document.getElementById('areas').innerHTML = " - Mines"
+  document.getElementById('commanderText').innerHTML=" These mines hold the resources that the Omega Cult use to construct their machines. Capturing this would be a massive help to our cause, of course, it can't be done until we take down the power core"
 }
 
 function enterPrison()

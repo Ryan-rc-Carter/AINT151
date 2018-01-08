@@ -6,6 +6,9 @@
   <title>Play Game</title>
   <link rel="stylesheet" type="text/css" href="Stylesheet.css">
   <script src="game.js"></script>
+  <audio id="backgroundMusic" autoplay loop>
+    <source src="music/NoiseAttack.mp3" type="audio/mpeg">
+  </audio>
 </head>
 
 <body onload="OnLoad()">
@@ -24,10 +27,7 @@
   /<br>
 
   <h2 class="standardHeader">Play</h2>
-
-  <input type="button" value="Enable Boss" onclick="enableBoss()">
-
-
+  <h3 class="musicCredit"> Kevin Macleod - Noise Attack</h3>
 
   <div class="gameWindow">
 
@@ -84,16 +84,19 @@
 
     <div class="buttonLayout">
       <p class="gameText"> - Room Navigation</p>
-
+      <br>
+      <br>
 
 
       <input class="roomButtons" id="enterCitadel" type="button" value="Enter Citadel" onClick="citadelEntrance()" disabled="true">
+
       <input class="roomButtons" id="enterMines" type="button" value="Enter Mines" onClick="enterMines()" disabled="true">
+
       <input class="roomButtons" id="enterPrison" type="button" value="Enter Prison" onClick="enterPrison()" disabled="true">
+
       <input class="roomButtons" id="enterFactory" type="button" value="Enter Factory" onClick="enterFactory()" disabled="true">
+
       <input class="roomButtons" id="enterPowerRoom" type="button" value="Enter Power Room" onClick="enterPowerRoom()" disabled="true">
-
-
 
       <input class="roomButtons" id="backToCitadel" type="button" value="Back to Citadel" onClick="backToCitadel()" disabled="true">
 
@@ -103,7 +106,8 @@
 
       <p class="gameText"> - Actions</p>
 
-
+      <br>
+      <br>
       <input class="actionButton" id="collectKeycard" type="button" value="Collect Keycard" onclick="collectKeycard()" disabled="true">
       <input class="actionButton" id="collectAccessOne" type="button" value="Collect Access Card 1" onclick="accessCardOne()" disabled="true">
       <input class="actionButton" id="collectAccessTwo" type="button" value="Collect Access Card 2" onclick="accessCardTwo()" disabled="true">
