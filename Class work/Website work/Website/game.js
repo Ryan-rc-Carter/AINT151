@@ -23,6 +23,8 @@ function OnLoad()
   localStorage.setItem("Generators",0)
 
   localStorage.setItem("text",0)
+
+  console.log(localStorage.getItem('text'))
 }
 
 
@@ -414,51 +416,67 @@ function gen2()
 
 function gen3()
 {
-  document.getElementById('commanderText').innerHTML="GENERATOR #3 DEACTIVATED"
+  document.getElementById('commanderText').innerHTML="YOUR INSOLENCE HAS BEEN NOTICED BY THE OMEGA CULT HIGH COMMAND, FACILITY SELF DESTRUCTION SEQUENCE INITIATED"
   document.getElementById('commanderText').style.color="red";
   document.getElementById('gen3').disabled=true;
   localStorage.setItem("Generators", 3)
+  document.getElementById("commanderButton").disabled = false
 
 }
 
+
+
 function nextText()
 {
-  var textType = localStorage.getItem("text")
+  var text = localStorage.getItem('text')
 
-  textType = textType + 1
-
-  localStorage.setItem("text", textType)
-
-  if (localStorage.getItem("Generators") == 3)
   {
-    document.getElementById("commanderButton").disabled
-    document.getElementById('commanderText').innerHTML="YOUR INSOLENCE HAS BEEN NOTICED BY THE OMEGA CULT HIGH COMMAND, FACILITY SELF DESTRUCTION SEQUENCE INITIATED"
-    document.getElementById('commanderText').style.color="red";
+    if (text == 0)
+    {
+      document.getElementById('commanderText').innerHTML="YOUR INSOLENCE HAS BEEN NOTICED BY THE OMEGA CULT HIGH COMMAND, FACILITY SELF DESTRUCTION SEQUENCE INITIATED"
+      document.getElementById('commanderText').style.color="red";
+      text = 1
+    }
 
-    if (localStorage.getItem("text") == 1)
+    if (text == 1)
     {
         document.getElementById('commanderText').style.color="white";
         document.getElementById('commanderText').innerHTML="Great job, now get the hell out of there before the faclity blows!"
+        text = 2
     }
-    else if (localStorage.getItem("text") == 2)
+
+    else if (text == 2)
     {
       document.getElementById('commanderText').innerHTML="FACLITY SELF DESTRUCTION SEQUENCE IN 3..."
       document.getElementById('commanderText').style.color="red";
+      text = 3
     }
-    else if (localStorage.getItem("text") == 3)
+
+    else if (text == 3)
     {
       document.getElementById('commanderText').innerHTML="FACLITY SELF DESTRUCTION SEQUENCE IN 2..."
       document.getElementById('commanderText').style.color="red";
+      text = 4
     }
-    else if (localStorage.getItem("text") == 4)
+
+    else if (text == 4)
     {
       document.getElementById('commanderText').innerHTML="FACLITY SELF DESTRUCTION SEQUENCE IN 1..."
       document.getElementById('commanderText').style.color="red";
+      text = 5
     }
-    else if (localStorage.getItem("text") == 2)
+
+    else if (text == 5)
     {
       alert("Thank you for playing, refresh the page to play again")
     }
+
+
+  console.log(text)
+
+  localStorage.setItem("text", text)
+
+
   }
 }
 

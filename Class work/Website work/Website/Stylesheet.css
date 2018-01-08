@@ -178,6 +178,27 @@ li
 
 }
 
+.startButton
+{
+  border-width: 5px;
+  border-color: Red;
+  border-style: solid;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  font-family: sans-serif;
+  font-size: 20px;
+  margin: 5px;
+  background-color: red;
+}
+
+b:hover
+{
+  background-color: DarkRed;
+  border-color: DarkRed;
+}
+
 
 #playerSprite
 {
