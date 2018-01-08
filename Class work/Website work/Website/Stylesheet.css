@@ -73,6 +73,23 @@ li
   font-size: 20px
 }
 
+.rightImageIndex
+{
+  float: right;
+  padding: 10px;
+  margin: 10px;
+  border-style: solid;
+  border-color: Darkred;
+}
+
+.leftImageIndex
+{
+  float: left;
+  padding: 10px;
+  margin: 10px;
+  border-style: solid;
+  border-color: Darkred;
+}
 
 .rightImage
 {
@@ -81,6 +98,7 @@ li
   margin: 10px;
   border-style: solid;
   border-color: Darkred;
+  width: 50%
 }
 .leftImage
 {
@@ -89,6 +107,8 @@ li
   margin: 10px;
   border-style: solid;
   border-color: Darkred;
+  width: 50%
+
 }
 .gameWindow
 {

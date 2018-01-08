@@ -187,7 +187,7 @@ function calculateEmemyHealth()
     document.getElementById('enterMines').disabled=false;
     document.getElementById('enterPrison').disabled=false;
     document.getElementById('enterFactory').disabled=false;
-    document.getElementById('commanderText').innerHTML="Looks like we need to collect 3 ACCESS CARDS to reach the Power room. Lets clear the MINES, PRISON and FACTORY \n\n\n\n\n\n"
+    document.getElementById('commanderText').innerHTML="Looks like we need to collect 3 ACCESS CARDS to reach the Power room. Lets clear the MINES, PRISON and FACTORY"
 
   }
   else if (currentEnemyHealth <= 0 && localStorage.getItem('area') == 3)
@@ -269,6 +269,7 @@ function enterPrison()
   document.getElementById('Health').innerHTML="100"
   document.getElementById('attackButton').disabled=false;
   document.getElementById('areas').innerHTML = " - Prison"
+  document.getElementById("commanderText").innerHTML="Too many of our people were brought here. Once we free them, we shall be a force to be reckoned with"
 }
 function enterFactory()
 {
@@ -284,6 +285,7 @@ function enterFactory()
   document.getElementById('Health').innerHTML="100"
   document.getElementById('attackButton').disabled=false;
   document.getElementById('areas').innerHTML = " - Factory"
+  document.getElementById("commanderText").innerHTML="This is the "
 
 }
 
