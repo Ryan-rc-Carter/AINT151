@@ -285,7 +285,7 @@ function enterFactory()
   document.getElementById('Health').innerHTML="100"
   document.getElementById('attackButton').disabled=false;
   document.getElementById('areas').innerHTML = " - Factory"
-  document.getElementById("commanderText").innerHTML="This is the "
+  document.getElementById("commanderText").innerHTML="This is the heart of the Omega war effort in this area. With this destroyed or captured, our forces will have a much easier time dealing with the remaining Omega Cult"
 
 }
 
