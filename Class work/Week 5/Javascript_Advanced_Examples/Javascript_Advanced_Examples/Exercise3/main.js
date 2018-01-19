@@ -7,7 +7,12 @@ var roomObject = {
 
 function OnLoad()
 {
-	
+	document.getElementById('roomtitle').innerHTML = roomObject.title;
+	document.getElementById('roomtext').innerHTML = roomObject.text;
+
+	for(var i = 0; i < roomObject.choices.length; i++)
+	{
+		
+	}
+
 }
-
-
